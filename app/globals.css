@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+/* DELLEPIANE - Cuadros de Diseño Theme */
+:root {
+  /* Core Brand Colors */
+  --cream: #f3f0e8;
+  --olive-soft: #8e927b;
+  --olive-deep: #5f6a54;
+  --terracotta: #a97456;
+  --gold: #b79a63;
+
+  /* Semantic Tokens */
+  --background: #f3f0e8;
+  --foreground: #3d3d3d;
+  --card: #ffffff;
+  --card-foreground: #3d3d3d;
+  --popover: #ffffff;
+  --popover-foreground: #3d3d3d;
+  --primary: #5f6a54;
+  --primary-foreground: #f3f0e8;
+  --secondary: #8e927b;
+  --secondary-foreground: #f3f0e8;
+  --muted: #e8e5dc;
+  --muted-foreground: #6b6b6b;
+  --accent: #a97456;
+  --accent-foreground: #f3f0e8;
+  --destructive: #b54a4a;
+  --destructive-foreground: #f3f0e8;
+  --border: #d4d1c7;
+  --input: #e8e5dc;
+  --ring: #5f6a54;
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --font-sans: "Inter", "Inter Fallback", system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", "Georgia", serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  --font-brush: var(--font-pinyon-script), "Pinyon Script", cursive;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Custom brand colors */
+  --color-cream: var(--cream);
+  --color-olive-soft: var(--olive-soft);
+  --color-olive-deep: var(--olive-deep);
+  --color-terracotta: var(--terracotta);
+  --color-gold: var(--gold);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Selection colors */
+  ::selection {
+    background-color: #5f6a54;
+    color: #f3f0e8;
+  }
+}
+
+/* Custom animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+/* Marquee animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Marquee reverse animation (right to left reversed = left to right) */
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 30s linear infinite;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+/* Slide in from right animation */
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.3s ease-out forwards;
+}
