@@ -198,10 +198,10 @@ export default function EditArtworkPage() {
                 className="w-full px-3 py-2 border border-[#D4D1C7] rounded-lg focus:outline-none focus:border-[#5F6A54]" />
             </div>
             <div>
-              <label className="block text-sm font-medium text-[#3D3D3D] mb-1">Slug (automático)</label>
-              <input type="text" readOnly value={form.slug}
-                className="w-full px-3 py-2 border border-[#D4D1C7] rounded-lg bg-[#F3F0E8] text-[#8E927B] cursor-not-allowed" />
-              <p className="text-xs text-[#8E927B] mt-1">Se genera automáticamente desde el título</p>
+              <label className="block text-sm font-medium text-[#3D3D3D] mb-1">Slug</label>
+              <input type="text" value={form.slug} onChange={e => setForm({...form, slug: generateSlug(e.target.value)})}
+                className="w-full px-3 py-2 border border-[#D4D1C7] rounded-lg focus:outline-none focus:border-[#5F6A54]" />
+              <p className="text-xs text-[#8E927B] mt-1">Se genera automáticamente desde el título, pero podés corregirlo acá</p>
             </div>
             <div>
               <label className="block text-sm font-medium text-[#3D3D3D] mb-1">Colección</label>

@@ -130,16 +130,17 @@ export default function NewArtworkPage() {
 
             <div>
               <label className="block text-sm font-medium text-[#3D3D3D] mb-2">
-                Slug * (se genera automáticamente)
+                Slug *
               </label>
               <input
                 type="text"
-                readOnly
+                required
                 value={form.slug}
-                className="w-full px-4 py-2.5 border border-[#D4D1C7] rounded-lg bg-[#F3F0E8] text-[#8E927B] cursor-not-allowed"
+                onChange={(e) => setForm({ ...form, slug: generateSlug(e.target.value) })}
+                className="w-full px-4 py-2.5 border border-[#D4D1C7] rounded-lg focus:outline-none focus:border-[#5F6A54]"
               />
               <p className="text-xs text-[#8E927B] mt-1">
-                Se genera automáticamente desde el título
+                Se genera automáticamente desde el título, pero podés corregirlo acá
               </p>
             </div>
 
